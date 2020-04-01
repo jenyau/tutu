@@ -40,7 +40,7 @@ class TicketsController < ApplicationController
 
   private
   def ticket_params
-    params.require(:ticket).permit(:passenger_name)
+    params.require(:ticket).permit(:passenger_name, :routes_name)
   end
 
   def set_ticket
