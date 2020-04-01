@@ -5,5 +5,14 @@
   <%= @ticket.passenger_name %>
 </p>
 
+<p>
+  <strong>Маршрут:</strong>
+  <% if @ticket.routes_name.present? %>
+  <%= @ticket.routes_name%>
+  <% else %>
+  Не установлен
+  <% end %>
+</p>
+
 <%= link_to 'Редактировать', edit_ticket_path(@ticket) %> |
 <%= link_to 'Назад', tickets_path %>
