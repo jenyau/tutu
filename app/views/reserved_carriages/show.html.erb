@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Тип:</strong>
+  <%= @reserved_carriage.carriage_type %>
+</p>
+
+<% if @reserved_carriage.train.present? %>
+  <p>
+  <strong>Вагон прицеплен к поезду:</strong>
+  <%= @reserved_carriage.train.number %>
+  <% else %>
+  <strong>Не прицеплен ни к одному поезду</strong>
+  </p>
+  <% end %>
+  
+
+<p>
+  <strong>Количество нижних мест:</strong>
+  <% if @reserved_carriage.bottom_places.present? %>
+    <%= @reserved_carriage.bottom_places %>
+  <% else %>
+    Не указано
+  <% end %>
+</p>
+
+<p>
+  <strong>Количество верхних мест:</strong>
+  <% if @reserved_carriage.upper_places.present? %>
+    <%= @reserved_carriage.upper_places %>
+  <% else %>
+    Не указано
+  <% end %>
+</p>
+
+<%= link_to 'Редактировать', edit_reserved_carriage_path(@reserved_carriage) %> |
+<%= link_to 'Назад', reserved_carriages_path %>

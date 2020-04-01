@@ -1,0 +1,6 @@
+<tr>
+  <td><%= reserved_carriage.carriage_type %></td>
+  <td><%= link_to 'Показать', reserved_carriage %></td>
+  <td><%= link_to 'Редактировать', edit_reserved_carriage_path(reserved_carriage) %></td>
+  <td><%= link_to 'Удалить', reserved_carriage, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+</tr>

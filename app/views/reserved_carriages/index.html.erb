@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Список плацкартных вагонов:</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Имя</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  <%= render @reserved_carriages %>
+
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Добавить плацкартный вагон', new_reserved_carriage_path %>

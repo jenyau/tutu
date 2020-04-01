@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Номер:</strong>
+  <%= @train.number %>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Билет на имя:</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @train.tickets.each do |train_ticket| %>
+      <tr>
+        <td><%= train_ticket.passenger_name %></td>
+        <td><%= link_to 'Показать', train_ticket %></td>
+        <td><%= link_to 'Редактировать', edit_ticket_path(train_ticket) %></td>
+        <td><%= link_to 'Удалить', train_ticket, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<p>
+<strong>Маршрут поезда:</strong>
+<% if @train.route.present? %>
+  <%= @train.route.name %>
+<% else %>
+  Маршрут не установлен
+<% end %>
+</p>
+
+<p>
+  <strong>Количество вагонов купе</strong>
+  <%= @train.compartment_carriages.size %><br>
+  
+  <strong>Верхних мест:</strong>
+  <% all_upper_places = 0 %>
+  <% all_bottom_places = 0 %>
+  <% @train.compartment_carriages.each do |carriage| %>
+    <% all_upper_places += carriage.upper_places %>
+    <% all_bottom_places += carriage.bottom_places %>
+  <% end %>
+    <%= all_upper_places %><br>
+
+  <strong>Нижних мест:</strong>
+  <%= all_bottom_places %>
+</p>
+
+<p>
+  <strong>Количество плацкартных вагонов</strong>
+  <%= @train.reserved_carriages.size %><br>
+
+  <strong>Верхних мест:</strong>
+  <% all_upper_places = 0 %>
+  <% all_bottom_places = 0 %>
+  <% @train.reserved_carriages.each do |carriage| %>
+    <% all_upper_places += carriage.upper_places %>
+    <% all_bottom_places += carriage.bottom_places %>
+  <% end %>
+  <%= all_upper_places %><br>
+
+  <strong>Нижних мест:</strong>
+  <%= all_bottom_places %><br>
+</p>
+
+<%= link_to 'Редактировать', edit_train_path(@train) %> |
+<%= link_to 'Назад', trains_path %>
