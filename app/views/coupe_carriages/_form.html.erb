@@ -1,0 +1,28 @@
+<%= form_with(model: @coupe_carriage, local: true) do |form| %>
+
+  <%= render 'common/errors', resource: @coupe_carriage %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :top_seats %>
+    <%= form.text_field :top_seats %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bottom_seats %>
+    <%= form.text_field :bottom_seats %>
+  </div>
+
+  <p><div class="firld">
+    <%= form.label :train %>
+    <%= form.collection_select :train_id, Train.all, :id, :number %>
+  </p></div>
+
+  <div class="actions">
+    <%= form.submit "#{ @coupe_carriage.new_record? ? 'Создать' : 'Изменить' }" %>
+  </div>
+<% end %>

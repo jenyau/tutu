@@ -1,0 +1,23 @@
+<%= form_with(model: @seats_carriage, local: true) do |form| %>
+
+  <%= render 'common/errors', resource: @seats_carriage %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seat_places %>
+    <%= form.text_field :seat_places %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :train %>
+    <%= form.collection_select :train_id, Train.all, :id, :number %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "#{ @seats_carriage.new_record? ? 'Создать' : 'Изменить' }" %>
+  </div>
+<% end %>

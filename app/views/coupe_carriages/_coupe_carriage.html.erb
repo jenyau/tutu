@@ -1,0 +1,6 @@
+<tr>
+  <td><%= coupe_carriage.number %></td>
+  <td><%= link_to 'Показать', coupe_carriage %></td>
+  <td><%= link_to 'Редактировать', edit_coupe_carriage_path(coupe_carriage) %></td>
+  <td><%= link_to 'Удалить', coupe_carriage, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+</tr>

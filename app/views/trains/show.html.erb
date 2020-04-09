@@ -33,38 +33,34 @@
 </p>
 
 <p>
-  <strong>Количество вагонов купе</strong>
-  <%= @train.compartment_carriages.size %><br>
-  
-  <strong>Верхних мест:</strong>
-  <% all_upper_places = 0 %>
-  <% all_bottom_places = 0 %>
-  <% @train.compartment_carriages.each do |carriage| %>
-    <% all_upper_places += carriage.upper_places %>
-    <% all_bottom_places += carriage.bottom_places %>
-  <% end %>
-    <%= all_upper_places %><br>
-
-  <strong>Нижних мест:</strong>
-  <%= all_bottom_places %>
+  <strong>Вагоны купе:</strong><br>
+  <%= render  'train_carriages', carriages: @train.carriages.coupe%>
 </p>
 
 <p>
-  <strong>Количество плацкартных вагонов</strong>
-  <%= @train.reserved_carriages.size %><br>
+  <strong>Плацкартные вагоны:</strong><br>
+  <%= render 'train_carriages', carriages: @train.carriages.economy %>
+  </p>
 
-  <strong>Верхних мест:</strong>
-  <% all_upper_places = 0 %>
-  <% all_bottom_places = 0 %>
-  <% @train.reserved_carriages.each do |carriage| %>
-    <% all_upper_places += carriage.upper_places %>
-    <% all_bottom_places += carriage.bottom_places %>
-  <% end %>
-  <%= all_upper_places %><br>
+<p>
+  <strong>СВ вагоны:</strong><br>
+  <%= render 'train_carriages', carriages: @train.carriages.sv %>
+  </p>
 
-  <strong>Нижних мест:</strong>
-  <%= all_bottom_places %><br>
+<p>
+  <strong>Сидячие вагоны:</strong><br>
+  <%= render 'train_carriages', carriages: @train.carriages.seats %>
 </p>
+
+
+<p>
+  <input type="check  box" id="sort" name="number">
+  <label for="sort">Sort</label>
+  <input type="checkbox" id="reverse sort" name="number">
+  <label for="reverse sort">Reverse sort</label>
+
+</p>
+
 
 <%= link_to 'Редактировать', edit_train_path(@train) %> |
 <%= link_to 'Назад', trains_path %>

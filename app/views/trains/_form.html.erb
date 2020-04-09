@@ -12,6 +12,11 @@
     <%= form.collection_select :route_id, Route.all, :id, :name %>
   </div>
 
+  <div class="field">
+    <%= form.label :current_station %>
+    <%= form.collection_select :railway_station_id, RailwayStation.all, :id, :title %>
+  </div>
+
   <div class="actions"><br>
     <%= form.submit "#{ @train.new_record? ? 'Создать' : 'Изменить' }" %>
   </div>
