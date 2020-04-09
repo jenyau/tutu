@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   resources :routes
   resources :tickets
   resources :users
-  resources :compartment_carriages
-  resources :reserved_carriages
+  resources :coupe_carriages
+  resources :economy_carriages
+  resources :sv_carriages
+  resources :seats_carriages
   get 'welcome/index'
 
   
