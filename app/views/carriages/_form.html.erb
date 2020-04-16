@@ -1,6 +1,6 @@
-<%= form_for [@train, @coupe_carriage] do |form| %>
+<%= form_for [@train, @carriage] do |form| %>
 
-  <%= render 'common/errors', resource: @coupe_carriage %>
+  <%= render 'common/errors', resource: @carriage %>
 
   <div class="field">
     <%= form.label :number %>
@@ -20,9 +20,9 @@
   <div class="field">
     <%= form.label :type %>
     <%= form.collection_select :type, [CoupeCarriage.first, EconomyCarriage.first, SvCarriage.first, SeatsCarriage.first], :type, :type %>
-  </div>
+     </div>
 
   <div class="actions">
-    <%= form.submit "#{ @coupe_carriage.new_record? ? 'Создать' : 'Изменить' }" %>
+    <%= form.submit "#{ @carriage.new_record? ? 'Создать' : 'Изменить' }" %>
   </div>
 <% end %>

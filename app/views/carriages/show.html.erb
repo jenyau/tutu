@@ -2,18 +2,18 @@
 
 <p>
   <strong>Номер вагона:</strong>
-  <%= @coupe_carriage.number %>
+  <%= carriage.number %>
 </p>
 
 <p>
   <strong>Тип вагона:</strong>
-  <%= @coupe_carriage.type %>
+  <%= carriage.type %>
 </p>
 
 <p>
   <strong>Присоединен к поезду:</strong>
-  <% if @coupe_carriage.train.present? %>
-    <%= @coupe_carriage.train.number %>
+  <% if carriage.train.present? %>
+    <%= carriage.train.number %>
     <% else %>
       Не присодинен к поезду
   <% end %>
@@ -21,16 +21,16 @@
 
 <p>
   <strong>Верхних мест:</strong>
-  <%= @coupe_carriage.top_seats %>
+  <%= carriage.top_seats %>
 </p>
 
 <p>
   <strong>Нижних мест:</strong>
-  <%= @coupe_carriage.bottom_seats %>
+  <%= carriage.bottom_seats %>
 </p>
 
 
 
 
-<%= link_to 'Редактировать', edit_coupe_carriage_path(@coupe_carriage) %> |
-<%= link_to 'Назад', @coupe_carriage.train %>
+<%= link_to 'Редактировать', edit_coupe_carriage_path(carriage) %> |
+<%= link_to 'Назад', carriage.train %>

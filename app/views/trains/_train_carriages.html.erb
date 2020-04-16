@@ -2,6 +2,6 @@
   Нет присоединенных вагонов
 <% else %>
   <% carriages.each do |carriage| %>
-    <%= link_to "#{carriage.number}", carriage %><br>
+    <%= link_to "Вагон №#{carriage.number}", carriage %><br>
   <% end %>
 <% end %>
