@@ -1,17 +1,14 @@
-<%= form_with(model: @ticket, local: true) do |form| %>
+<%= form_for [@user, @ticket] do |form| %>
 
   <%= render 'common/errors', resource: @ticket %>
 
   <div class="field">
     <%= form.label :passenger_name %>
     <%= form.text_field :passenger_name %>
+    <%= hidden_field_tag :train_id, @train.id %>
   </div>
 
-  <div class="field">
-    <%= form.label :routes_name %>
-    <%= form.text_field :routes_name %>
-  </div>
-
+  <strong><%= "Билет на поезд № #{@train.number}" %></strong>
   <div class="actions">
     <%= form.submit "#{ @ticket.new_record? ? 'Создать' : 'Изменить'}" %>
   </div>

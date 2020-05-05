@@ -1,0 +1,20 @@
+<h1>Поиск</h1>
+
+<%= form_tag user_search_path, method: :get do %> <%# form_with(url: "/search", method: "get") %>
+
+  <div>
+  <p>
+  <strong>Откуда:</strong>
+  <%= select_tag :first, options_from_collection_for_select(RailwayStation.all, :id, :title) %>
+  </p>
+  </div>
+
+  <div>
+  <p>
+  <strong>Куда:</strong>
+  <%= select_tag :second, options_from_collection_for_select(RailwayStation.all, :id, :title) %>
+  </p>
+  </div>
+
+  <div><%= submit_tag "Поиск" %><div>
+<% end %>

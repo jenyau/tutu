@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+<div>
+
+<table  style="border-bottom: 1px solid grey;">
+  <tr >
+    <th>Маршруты</th>
+    <th>Отправление</th>
+    <th>Прибытие</th>
+  </tr>
+
+  <% @route_arr.each do |route| %>
+    <tr>
+      <td>
+        <%= link_to "#{route.name}", route %>
+      </td>
+      <td>
+        <% if route.railway_stations.first.time_arrival(route).present? %>
+          <%= route.railway_stations.first.time_arrival(route).strftime('%H:%M') %>
+        <% else %>
+          Не указано
+        <% end %>
+      </td>
+      <td>
+        <% if route.railway_stations.last.time_departure(route).present? %>
+          <%= route.railway_stations.last.time_departure(route).strftime('%H:%M') %>
+        <% else %>
+          Не указано
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+</div>
+
+<div>
+<p><strong>Поезда на маршрутах:</strong></p>
+<% @route_arr.each do |route| %>
+  <strong><%= route.name %></strong><br>
+  <ul>
+    <% if route.trains.empty? %>
+      <li><strong>Нет поездов</strong></li>
+    <% else %>
+      <% route.trains.each do |train| %>
+      <table>
+        <tr>
+          <td>
+            <strong><%= link_to "Поезд № #{train.number}", train %></strong>
+          </td>
+            <%= form_tag new_user_ticket_path(@user), method: :get %>
+            <%= hidden_field_tag :train_id, train.id%>
+          <td><%= submit_tag "Купить билет" %>
+        </tr>
+      </table>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+<p></p>
