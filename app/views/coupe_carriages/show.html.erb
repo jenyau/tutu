@@ -11,6 +11,15 @@
 </p>
 
 <p>
+  <strong>Присоединен к поезду:</strong>
+  <% if @coupe_carriage.train.present? %>
+    <%= @coupe_carriage.train.number %>
+    <% else %>
+      Не присодинен к поезду
+  <% end %>
+</p>
+
+<p>
   <strong>Верхних мест:</strong>
   <%= @coupe_carriage.top_seats %>
 </p>
@@ -20,16 +29,8 @@
   <%= @coupe_carriage.bottom_seats %>
 </p>
 
-<p>
-  <strong>Присоединен к поезду:</strong>
-  <% if @coupe_carriage.train.present? %>
-    <%= @coupe_carriage.train.number %>
-    <% else %>
-      Не присодинен к поезду
-  <% end %>
-</p>
 
 
 
 <%= link_to 'Редактировать', edit_coupe_carriage_path(@coupe_carriage) %> |
-<%= link_to 'Назад', coupe_carriages_path %>
+<%= link_to 'Назад', @coupe_carriage.train %>

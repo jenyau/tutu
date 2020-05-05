@@ -4,6 +4,5 @@
   <strong>Имя:</strong>
   <%= @user.name %>
 </p>
+<%= link_to "Поиск", new_user_search_path(@user)%>
 
-<%= link_to 'Редактировать', edit_user_path(@user) %> |
-<%= link_to 'Назад', users_path %>

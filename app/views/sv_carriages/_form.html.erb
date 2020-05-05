@@ -1,4 +1,4 @@
-<%= form_with(model: @sv_carriage, local: true) do |form| %>
+<%= form_for [@train, @sv_carriage] do |form| %>
 
   <%= render 'common/errors', resource: @sv_carriage %>
 
@@ -10,11 +10,6 @@
   <div class="field">
     <%= form.label :bottom_seats %>
     <%= form.text_field :bottom_seats %>
-  </div>
-
-  <div class="field">
-    <%= form.label :train %>
-    <%= form.collection_select :train_id, Train.all, :id, :number %>
   </div>
 
   <div class="actions">

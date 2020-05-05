@@ -1,4 +1,4 @@
-<%= form_with(model: @coupe_carriage, local: true) do |form| %>
+<%= form_for [@train, @coupe_carriage] do |form| %>
 
   <%= render 'common/errors', resource: @coupe_carriage %>
 
@@ -17,10 +17,32 @@
     <%= form.text_field :bottom_seats %>
   </div>
 
-  <p><div class="firld">
-    <%= form.label :train %>
-    <%= form.collection_select :train_id, Train.all, :id, :number %>
-  </p></div>
+  <div class="field">
+    <%= form.label :seat_places %>
+    <%= form.number_field :seat_places %>
+  
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.collection_select :type, [CoupeCarriage.first, EconomyCarriage.first, SvCarriage.first, SeatsCarriage.first], :type, :type %>
+  </div>
+
+  <div class="field">
+    <% if EconomyCarriage.all.empty? %>
+      <%= link_to "Создать плацкартный вагон", new_train_economy_carriage_path(@train) %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if SvCarriage.all.empty? %>
+      <%= link_to "Создать вагон СВ", new_train_sv_carriage_path(@train) %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if SeatsCarriage.all.empty? %>
+      <%= link_to "Создать вагон сидячих мест", new_train_seats_carriage_path(@train) %>
+    <% end %>
+  </div>
 
   <div class="actions">
     <%= form.submit "#{ @coupe_carriage.new_record? ? 'Создать' : 'Изменить' }" %>

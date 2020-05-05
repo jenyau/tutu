@@ -1,5 +1,5 @@
 class RoutesController < ApplicationController
-  before_action :set_route, only: [:show, :update, :edit, :destroy]
+  before_action :set_route, only: [:show, :update, :edit, :destroy, :time_edit]
   
     def index
     @routes = Route.all
@@ -37,6 +37,10 @@ class RoutesController < ApplicationController
     @route.destroy
     redirect_to routes_path
   end
+
+  def time_edit
+  end
+
   
   private
   def train_params

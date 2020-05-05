@@ -1,5 +1,6 @@
 class EconomyCarriagesController < ApplicationController
   before_action :set_economy_carriage, only: [:show, :edit, :update, :destroy]
+  before_action :set_train, only: [:new, :create]
 
   def index
     @economy_carriages = EconomyCarriage.all
@@ -13,7 +14,7 @@ class EconomyCarriagesController < ApplicationController
   end
 
   def create
-    @economy_carriage = EconomyCarriage.new(economy_carriage_params)
+    @economy_carriage = @train.carriages.economy.new(economy_carriage_params)
 
     if @economy_carriage.save
       redirect_to @economy_carriage
@@ -41,10 +42,14 @@ class EconomyCarriagesController < ApplicationController
   private
   def economy_carriage_params
     params.require(:economy_carriage).permit(:number, :top_seats, :bottom_seats, :side_top_seats, 
-                                             :side_bottom_seats,:train_id)
+                                             :side_bottom_seats,:train_id, :type)
   end
 
   def set_economy_carriage
     @economy_carriage = EconomyCarriage.find(params[:id])
+  end
+
+  def set_train
+    @train = Train.find(params[:train_id])
   end
 end

@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Название:</strong>
-  <%= @route.name %>
+  <h1>Маршрут: <%= "#{@route.name}" %></h1>
 </p>
 
 
@@ -14,15 +13,47 @@
 </thead>
 
 <p>
-  <strong>Станиции:</strong><br>
   <% if @route.railway_stations.empty? %>
-    Нет выбранных станций
+    В маршруте нет станций
   <% else %>
-    <% @route.railway_stations.each do |station| %>
-      <%= station.title %>
-      serial_number
-      <%= station.serial_number_route_id %><br>
-    <% end %>
+    <table>
+      <tr>
+        <th>Название</th>
+        <th>Позиция</th>
+        <th></th>
+        <th>Время прибытия</th>
+        <th>Время отправления</th>
+        </tr>
+      <tbody>
+        <% @route.railway_stations.ordered.each do |station| %>
+          <tr>
+            <td><%= station.title %></td>
+            <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+              <td><%= number_field_tag :position, station.position_in(@route) %>
+                <%= hidden_field_tag :route_id, @route.id %>
+              </td>
+              <td><%= submit_tag "Изменить" %>
+            <% end %>
+
+            <td align="center">
+              <% if station.time_arrival(@route).present? %>
+                <%= link_to "#{station.time_arrival(@route).strftime('%H:%M')}", time_edit_route_path(@route) %>
+              <% else %>
+                <%= link_to "Не указано", time_edit_route_path(@route) %>
+              <% end %>
+            </td>
+
+            <td align="center">
+              <% if station.time_departure(@route).present? %>
+                <%= link_to "#{station.time_departure(@route).strftime('%H:%M')}", time_edit_route_path(@route) %>
+              <% else %>
+                <%= link_to "Не указано", time_edit_route_path(@route) %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   <% end %>
 </p>
 

@@ -52,15 +52,7 @@
   <%= render 'train_carriages', carriages: @train.carriages.seats %>
 </p>
 
+<p><%= link_to "Добавить вагон", new_train_coupe_carriage_path(@train) %></p>
 
-<p>
-  <input type="check  box" id="sort" name="number">
-  <label for="sort">Sort</label>
-  <input type="checkbox" id="reverse sort" name="number">
-  <label for="reverse sort">Reverse sort</label>
-
-</p>
-
-
-<%= link_to 'Редактировать', edit_train_path(@train) %> |
+<%= link_to 'Редактировать', edit_train_path(@train) %>
 <%= link_to 'Назад', trains_path %>

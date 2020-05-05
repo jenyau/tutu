@@ -1,6 +1,7 @@
 class Carriage < ApplicationRecord
   belongs_to :train
 
+
   before_validation :generation_number
 
   validates :number, uniqueness: { scope: :train_id, message: "Сarriage with the same number already exists" }
@@ -10,7 +11,7 @@ class Carriage < ApplicationRecord
   scope :coupe, -> {where(type: 'CoupeCarriage')}
   scope :seats, -> {where(type: 'SeatsCarriage').order(:number)}
   scope :ordered, -> {order('number DESC')}
-
+  
   private
   def generation_number
     count = 1
