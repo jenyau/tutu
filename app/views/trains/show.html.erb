@@ -34,28 +34,25 @@
 
 <p>
   <strong>Вагоны купе:</strong><br>
-  <%= render  'train_carriages', carriages: @train.carriages.coupe%><br>
-  <%= link_to "Добавить вагон", new_train_coupe_carriage_path(@train) %>
+  <%= render  'train_carriages', carriages: @train.carriages.coupe%>
 </p>
 
 <p>
   <strong>Плацкартные вагоны:</strong><br>
-  <%= render 'train_carriages', carriages: @train.carriages.economy %><br>
-  <%= link_to "Добавить вагон", new_train_economy_carriage_path(@train) %>
+  <%= render 'train_carriages', carriages: @train.carriages.economy %>
   </p>
 
 <p>
   <strong>СВ вагоны:</strong><br>
-  <%= render 'train_carriages', carriages: @train.carriages.sv %><br>
-  <%= link_to "Добавить вагон", new_train_sv_carriage_path(@train) %>
-
+  <%= render 'train_carriages', carriages: @train.carriages.sv %>
   </p>
 
 <p>
   <strong>Сидячие вагоны:</strong><br>
-  <%= render 'train_carriages', carriages: @train.carriages.seats %><br>
-  <%= link_to "Добавить вагон", new_train_seats_carriage_path(@train) %>
+  <%= render 'train_carriages', carriages: @train.carriages.seats %>
 </p>
 
-<%= link_to 'Редактировать', edit_train_path(@train) %> |
+<p><%= link_to "Добавить вагон", new_train_coupe_carriage_path(@train) %></p>
+
+<%= link_to 'Редактировать', edit_train_path(@train) %>
 <%= link_to 'Назад', trains_path %>
