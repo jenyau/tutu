@@ -11,7 +11,7 @@
   <% @route_arr.each do |route| %>
     <tr>
       <td>
-        <%= link_to "#{route.name}", route %>
+        <%= route.name %>
       </td>
       <td>
         <% if route.railway_stations.first.time_arrival(route).present? %>
@@ -45,11 +45,14 @@
       <table>
         <tr>
           <td>
-            <strong><%= link_to "Поезд № #{train.number}", train %></strong>
+            <strong><%= train.number %></strong>
           </td>
-            <%= form_tag new_user_ticket_path(@user), method: :get %>
-            <%= hidden_field_tag :train_id, train.id%>
-          <td><%= submit_tag "Купить билет" %>
+          <td>
+            <%= form_tag new_ticket_path, method: :get %>
+            <%= hidden_field_tag :train_id, train.id %>
+            <%= hidden_field_tag :user_id, current_user.id %>
+            <%= submit_tag "Купить билет" %>
+          <td/>
         </tr>
       </table>
       <% end %>

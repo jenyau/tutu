@@ -1,6 +1,6 @@
-class RoutesController < ApplicationController
+class Admin::RoutesController < Admin::BaseController
   before_action :set_route, only: [:show, :update, :edit, :destroy, :time_edit]
-  
+
     def index
     @routes = Route.all
   end
@@ -14,7 +14,7 @@ class RoutesController < ApplicationController
 
   def create
     @route = Route.new(train_params)
-    
+
     if @route.save
         redirect_to @route
     else
@@ -41,7 +41,7 @@ class RoutesController < ApplicationController
   def time_edit
   end
 
-  
+
   private
   def train_params
     params.require(:route).permit(:name, railway_station_ids:[])

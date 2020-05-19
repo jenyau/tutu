@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TutuScreencast</title>
+    <title>Tutu-Administrator</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -15,16 +15,13 @@
  <p id="notice" class="alert"><%= alert %></p>
 
   <% if user_signed_in? %>
-    <%= link_to "Выйти", destroy_user_session_path, method: :delete %><br>
-    Приветствую: <%= current_user.name %>
+    <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
     <p>Аккаунт: <%= current_user.email %></p>
-    <p><%= link_to "Личный кабинет", user_path(current_user) %></p>
   <% else %>
     <%= link_to "Войти", new_user_session_path %>
   <% end %>
 
     <%= yield %>
-
 
   </body>
 </html>

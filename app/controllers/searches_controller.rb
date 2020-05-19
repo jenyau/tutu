@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
 
   def show
-    @user = User.find(params[:user_id])
+    @user = current_user
     @route_arr = []
     Route.all.each do |route|
       if route.railway_stations.where(id: params[:first]).present? &&
@@ -15,12 +15,12 @@ class SearchesController < ApplicationController
             @route_arr << route
           end
         else
-          @user = User.find(params[:user_id])
+          @user = current_user
           @route_arr << route
         end
       end
     end
   end
-  end
   def new
+  end
 end

@@ -1,4 +1,4 @@
-class CoupeCarriagesController < ApplicationController
+class Admin::CoupeCarriagesController < Admin::BaseController
   before_action :set_coupe_carriage, only: [:show, :edit, :update, :destroy]
   before_action :set_train, only: [:new, :create]
 

@@ -1,4 +1,4 @@
-class SeatsCarriagesController < ApplicationController
+class Admin::SeatsCarriagesController < Admin::BaseController
   before_action :set_seats_carriage, only: [:show, :edit, :update, :destroy]
   before_action :set_train, only: [:new, :create]
 
