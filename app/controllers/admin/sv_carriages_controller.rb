@@ -1,4 +1,4 @@
-class SvCarriagesController < ApplicationController
+class Admin::SvCarriagesController < Admin::BaseController
   before_action :set_sv_carriage, only: [:show, :edit, :update, :destroy]
   before_action :set_train, only: [:new, :create]
 
@@ -15,7 +15,7 @@ class SvCarriagesController < ApplicationController
 
   def create
     @sv_carriage = @train.carriages.sv.new(sv_carriage_params)
-    
+
     if @sv_carriage.save
       redirect_to @sv_carriage
     else
@@ -43,7 +43,7 @@ class SvCarriagesController < ApplicationController
   def set_sv_carriage
     @sv_carriage = SvCarriage.find(params[:id])
   end
-  
+
   def sv_carriage_params
     params.require(:sv_carriage).permit(:number, :bottom_seats, :train_id, :type)
   end

@@ -1,21 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Личный кабинет:</strong>
-  <%= current_user.email %>
-</p>
+<h1>Список билетов</h1>
 
-
-<% current_user.tickets.each do |ticket| %>
+<% Ticket.all.each do |ticket| %>
   <p>
   Билет на имя: <%= ticket.passenger_name %><br>
   Номер поезда: <%= ticket.train.number %><br>
   Маршрут: <%= ticket.train.route.name %><br>
-  <%= link_to "Посмотреть", ticket_path(ticket) %>
+  <%= link_to "По смотреть", ticket_path(ticket) %>
   <%= link_to 'Удалить', ticket, method: :delete, data: { confirm: 'Вы уверены?' } %>
   </p>
 <% end %>
-
-
-<p><%= link_to "Поиск", new_search_path %></p>
-
