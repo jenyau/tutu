@@ -1,20 +1,19 @@
-<h1>Поиск</h1>
+<h1><%= t('.title') %></h1>
+<div class="">
+  <%= form_tag search_path, method: :get do %> <%# form_with(url: "/search", method: "get") %>
+    <div class="col-md-4">
+      <p>
+      <strong><%= t('searches.first') %></strong>
+      <%= select_tag :first, options_from_collection_for_select(RailwayStation.all, :id, :title) %>
+      </p>
+    </div>
+    <div class="col-md-4">
+    <p>
+    <strong><%= t('searches.second') %></strong>
+    <%= select_tag :second, options_from_collection_for_select(RailwayStation.all, :id, :title) %>
+    </p>
+    </div>
 
-<%= form_tag search_path, method: :get do %> <%# form_with(url: "/search", method: "get") %>
-
-  <div>
-  <p>
-  <strong>Откуда:</strong>
-  <%= select_tag :first, options_from_collection_for_select(RailwayStation.all, :id, :title) %>
-  </p>
-  </div>
-
-  <div>
-  <p>
-  <strong>Куда:</strong>
-  <%= select_tag :second, options_from_collection_for_select(RailwayStation.all, :id, :title) %>
-  </p>
-  </div>
-
-  <div><%= submit_tag "Поиск" %><div>
-<% end %>
+    <div class="col-md-4"><%= submit_tag "Поиск", class: 'btn btn-primary' %><div>
+  <% end %>
+</div>

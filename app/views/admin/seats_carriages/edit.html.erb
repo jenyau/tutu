@@ -1,5 +1,5 @@
-<h1>Изменить вагон с сидячими местами</h1>
+<h1><%= t('title') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Назад', @seats_carriage.train %>
+<%= link_to t('common.back'), [:admin, @seats_carriage.train] %>

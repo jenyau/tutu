@@ -1,7 +1,7 @@
 <% if carriages.empty? %>
-  Нет присоединенных вагонов
+  <%= t('carriages_empty')%>
 <% else %>
   <% carriages.each do |carriage| %>
-    <%= link_to "Вагон №#{carriage.number}", carriage %><br>
+    <%= "Вагон №#{carriage.number}" %><br>
   <% end %>
 <% end %>

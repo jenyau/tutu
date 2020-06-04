@@ -1,5 +1,5 @@
-<h1>Добавить вагон <%= 'купе' if CoupeCarriage.all.empty? %></h1>
+<h1><%= t('title') %><%= 'купе' if CoupeCarriage.all.empty? %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Назад', @train %>
+<%= link_to t('common.back'), admin_train_path(@train) %>

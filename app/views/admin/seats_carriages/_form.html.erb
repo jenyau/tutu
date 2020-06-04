@@ -1,4 +1,4 @@
-<%= form_for [@train, @seats_carriage] do |form| %>
+<%= form_for [:admin, @train, @seats_carriage] do |form| %>
 
   <%= render 'common/errors', resource: @seats_carriage %>
 
@@ -13,6 +13,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "#{ @seats_carriage.new_record? ? 'Создать' : 'Изменить' }" %>
+    <%= form.submit t('.submit',action: @seats_carriage.new_record? ? 'Создать' : 'Изменить') %>
   </div>
 <% end %>

@@ -1,6 +1,6 @@
 <tr>
   <td><%= sv_carriage.number %></td>
-  <td><%= link_to 'Показать', sv_carriage %></td>
-  <td><%= link_to 'Редактировать', edit_sv_carriage_path(sv_carriage) %></td>
-  <td><%= link_to 'Удалить', sv_carriage, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+  <td><%= link_to t('common.show'), [:admin, sv_carriage] %></td>
+  <td><%= link_to t('common.edit'), edit_sv_carriage_path(sv_carriage) %></td>
+  <td><%= link_to t('common.delete'), [:admin, sv_carriage], method: :delete, data: { confirm: 'Вы уверены?' } %></td>
 </tr>

@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Список плацкартных вагонов</h1>
+<h1><%= t('.title') %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Номер</th>
+      <th><%= t('common.number') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,4 +19,4 @@
 
 <br>
 
-<%= link_to 'Добавить пользователя', new_economy_carriage_path %>
+<%= link_to t('.add_carriage'), new_admin_train_economy_carriage_path(@economy_carriage.train) %>

@@ -1,0 +1,6 @@
+<tr>
+  <td><%= ticket.passenger_name %></td>
+  <td><%= link_to t('common.show'), ticket %></td>
+  <td><%= link_to t('common.edit'), edit_ticket_path(ticket) %></td>
+  <td><%= link_to t('common.delete'), ticket, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+</tr>

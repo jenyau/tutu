@@ -7,6 +7,10 @@ class Admin::BaseController < ApplicationController
   protected
 
   def check_admin
-    redirect_to root_path, alert: 'У вас нет прав для просмотра этой страницы' unless current_user.admin?
+    if current_user
+      redirect_to root_path, alert: 'У вас нет прав для просмотра этой страницы' unless current_user.admin?
+    else
+      redirect_to new_user_session_path
+    end
   end
 end

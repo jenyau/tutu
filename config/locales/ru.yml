@@ -1,0 +1,172 @@
+ru:
+  empty: 'Не найдено'
+
+  common:
+    back: 'Назад'
+    edit: 'Редактировать'
+    show: 'Показать'
+    delete: 'Удалить'
+    errors: 'Заполните пожалуйста форму, что бы продолжить'
+  carriages:
+    add_carriage: 'Добавить вагон'
+    number: 'Номер:'
+    type: 'Тип вагона:'
+    top_seats: 'Верхних мест:'
+    bottom_seats: 'Нижних мест:'
+    sv_places: 'Мест:'
+    side_top_seats: 'Боковых верхинх мест:'
+    side_bottom_seats: 'Боковых нижних мест:'
+    seats_places: 'Сидячих мест: '
+    train: 'Присоединен к поезду:'
+    train_empty: 'Не присединен к поезду'
+  admin:
+    economy_carriages:
+      form:
+        submit: '%{action}'
+      edit:
+        title: 'Редактировать плацкартный вагон'
+      index:
+        title: 'Список всех плацкартных вагонов'
+      new:
+        title: 'Добавить плацкартный вагон'
+    coupe_carriages:
+      form:
+        submit: '%{action}'
+      edit:
+        title: 'Редактировать вагон купе'
+      index:
+        title: 'Список всех вагонов купе'
+      new:
+        title: 'Добавить вагон купе'
+    seats_carriges:
+      form:
+        submit: '%{action}'
+      edit:
+        title: 'Редактировать вагон с сидячими местами'
+      index:
+        title: 'Список всех вагонов с сидячими местами'
+      new:
+        title: 'Добавить вагон с сидячими местами'
+    sv_carriages:
+      form:
+        submit: '%{action}'
+      edit:
+        title: 'Редактировать вагон СВ'
+      index:
+        title: 'Список всех вагонов СВ'
+      new:
+        title: 'Добавить вагон СВ'
+    routes:
+      form:
+        submit: '%{action}'
+      edit:
+        title: 'Изменить маршрут'
+        list_routes: 'Список маршрутов'
+      index:
+        title: 'Список маршрутов'
+        name: 'Название'
+        add_route: 'Добавить маршрут'
+      new:
+        title: 'Добавить маршрут'
+      show:
+        title: 'Маршрут: '
+        stations_empty: 'В маршруте нет ни одной станции'
+        table_name: 'Название'
+        table_position: 'Позиция'
+        table_time_departure: 'Время отправления'
+        table_time_arrival: 'Время прибытия'
+        change_position: 'Изменить'
+        time_empty: 'Не установлено'
+        trains_on_route: 'Поезда на этом маршруте:'
+        trains_empty: 'На этом маршруте нет поездов'
+      time_edit:
+        title: 'Изменить время прибытия и отправления поезда со станции'
+        table_name: 'Название'
+        table_time_arrival: 'Время прибытия'
+        table_time_departure: 'Время отправления'
+        change_time: 'Изменить  '
+    railway_stations:
+      form:
+        submit: '%{action}'
+      new:
+        title: 'Новая станция'
+      edit:
+        title: 'Изменить станцию'
+      index:
+        title: 'Список станций'
+        name: 'Название'
+        add_station: 'Добавить станцию'
+      new:
+        title: 'Добавить станцию'
+      show:
+        name: 'Название:'
+        routes: 'Входит в маршруты:'
+        routes_empty: 'Не входит ни в один маршрут'
+    trains:
+      form:
+        submit: '%{action}'
+      carriages_empty: 'Нет присоединенных вагонов'
+      edit:
+        title: 'Изменить поезд'
+      index:
+        title: 'Изменить поезд'
+        number: 'Номер'
+        add_train: 'Добавить поезд'
+      new:
+        title: 'Добавить поезд'
+      show:
+        number: 'Номер:'
+        ticket_name: 'Билет на имя:'
+        route: 'Маршрут поезда:'
+        route_empty: 'Маршрут не установлен'
+        coupe_carriages: 'Вагоны купе:'
+        economy_carriages: 'Плацкартные вагоны:'
+        sv_carriages: 'СВ вагоны:'
+        seats_carriages: 'Сидячие вагоны:'
+        add_carriage: 'Добавить вагон'
+  searches:
+    new:
+      title: 'Поиск'
+    first: 'Откуда'
+    second: 'Куда'
+    show:
+      routes: 'Маршруты'
+      departure: 'Отправление'
+      arrival: 'Прибытие'
+      trains_on_routes: 'Поезда на маршрутах:'
+      buy_ticket: 'Купить билет'
+  tickets:
+    form:
+      submit: '%{action}'
+    edit:
+      title: 'Редактировать билет'
+    index:
+      title: 'Список билетов'
+    new:
+      title: 'Добавить билет'
+    show:
+      name: 'Билет на имя: '
+      train_number: 'Номер поезда: '
+      route: 'Маршрут: '
+      user: 'Принадлежит пользователю:'
+
+  users:
+    form:
+      submit: '%{action}'
+    edit:
+      title: 'Изменить пользователя'
+    index:
+      add_user: 'Добавить пользователя'
+      name: 'Имя'
+      title: 'Список пользователей'
+    new:
+      title: 'Добавить пользователя'
+    show:
+      title: 'Личный кабинет:'
+      ticket_name: 'Билет на имя:'
+      train_number: 'Номер поезда:'
+      route: 'Маршрут:'
+
+
+
+

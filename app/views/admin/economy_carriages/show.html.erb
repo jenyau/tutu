@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t('carriages.number') %></strong>
+  <%= @economy_carriage.number %>
+</p>
+
+<p>
+  <strong><%= t('carriages.type') %></strong>
+  <%= @economy_carriage.type %>
+</p>
+
+<p>
+  <strong><%= t('carriages.top_seats') %></strong>
+  <%= @economy_carriage.top_seats %>
+</p>
+
+<p>
+  <strong><%= t('carriages.bottom_seats') %></strong>
+  <%= @economy_carriage.bottom_seats %>
+</p>
+
+<p>
+  <strong><%= t('carriages.side_top_seats') %></strong>
+  <%= @economy_carriage.side_top_seats %>
+</p>
+
+<p>
+  <strong><%= t('carriages.side_bottom_seats') %></strong>
+  <%= @economy_carriage.side_bottom_seats %>
+</p>
+
+<p>
+  <strong><%= t('carriages.train') %></strong>
+  <% if @economy_carriage.train.present? %>
+    <%= @economy_carriage.train.number %>
+  <% else %>
+    <%= t('carriages.train_empty') %>
+  <% end %>
+</p>
+
+
+<%= link_to t('common.edit'), edit_admin_economy_carriage_path(@economy_carriage) %> |
+<%= link_to t('common.back'), [:admin, @economy_carriage.train] %>

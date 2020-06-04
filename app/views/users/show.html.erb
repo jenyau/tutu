@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Личный кабинет:</strong>
+  <strong><%= t('.title') %></strong>
   <%= current_user.email %>
 </p>
 
 
 <% current_user.tickets.each do |ticket| %>
   <p>
-  Билет на имя: <%= ticket.passenger_name %><br>
-  Номер поезда: <%= ticket.train.number %><br>
-  Маршрут: <%= ticket.train.route.name %><br>
-  <%= link_to "Посмотреть", ticket_path(ticket) %>
-  <%= link_to 'Удалить', ticket, method: :delete, data: { confirm: 'Вы уверены?' } %>
+  <%= t('.ticket_name') %> <%= ticket.passenger_name %><br>
+  <%= t('.train_number')%> <%= ticket.train.number %><br>
+  <%= t('.route') %> <%= ticket.train.route.name %><br>
+  <%= link_to t('common.show'), ticket_path(ticket) %>
+  <%= link_to t('common.delete'), ticket, method: :delete, data: { confirm: 'Вы уверены?' } %>
   </p>
 <% end %>
 

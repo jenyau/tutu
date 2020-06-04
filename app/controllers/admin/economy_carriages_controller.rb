@@ -1,4 +1,4 @@
-class EconomyCarriagesController < ApplicationController
+class Admin::EconomyCarriagesController < Admin::BaseController
   before_action :set_economy_carriage, only: [:show, :edit, :update, :destroy]
   before_action :set_train, only: [:new, :create]
 
@@ -17,7 +17,7 @@ class EconomyCarriagesController < ApplicationController
     @economy_carriage = @train.carriages.economy.new(economy_carriage_params)
 
     if @economy_carriage.save
-      redirect_to @economy_carriage
+      redirect_to admin_economy_carriage_path(@economy_carriage)
     else
       render :new
     end
@@ -28,7 +28,7 @@ class EconomyCarriagesController < ApplicationController
 
   def update
     if @economy_carriage.update(economy_carriage_params)
-      redirect_to @economy_carriage
+      redirect_to admin_economy_carriage_path(@economy_carriage)
     else
       render :edit
     end
@@ -36,12 +36,12 @@ class EconomyCarriagesController < ApplicationController
 
   def destroy
     @economy_carriage.destroy
-    redirect_to economy_carriages_path
+    redirect_to admin_economy_carriages_path
   end
 
   private
   def economy_carriage_params
-    params.require(:economy_carriage).permit(:number, :top_seats, :bottom_seats, :side_top_seats, 
+    params.require(:economy_carriage).permit(:number, :top_seats, :bottom_seats, :side_top_seats,
                                              :side_bottom_seats,:train_id, :type)
   end
 
