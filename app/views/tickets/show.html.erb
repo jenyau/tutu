@@ -1,0 +1,4 @@
+<h3> <%= t('.name') %><%= @ticket.passenger_name %></h3>
+<h5> <%= t('.train_number') %> <%= @ticket.train.number %> </h5>
+<h5> <%= t('.route') %> <%= @ticket.train.route.name %></h5>
+<h5> <%= t('.user') %> <%= current_user.name %></h5>

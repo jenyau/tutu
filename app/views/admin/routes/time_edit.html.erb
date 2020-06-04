@@ -1,10 +1,10 @@
-<h1>Изменить время прибытия и отправления поезда со станции</h1>
+<h1><%= t('.title') %></h1>
 <table>
   <tr>
-    <th>Название</th>
-    <th>Время прибытия</th>
+    <th><%= t('.table_name') %></th>
+    <th><%= t('.table_time_arrival') %></th>
     <th></th>
-    <th>Время отправления</th>
+    <th><%= t('.table_time_departure') %></th>
   </tr>
   <tbody>
     <% @route.railway_stations.ordered.each do |station| %>
@@ -12,24 +12,24 @@
         <td><%= station.title %></td>
 
 
-        <%= form_tag update_arrival_railway_station_path(station), method: :patch do %>
+        <%= form_tag update_arrival_admin_railway_station_path(station), method: :patch do %>
           <td>
             <%= time_field_tag :arrival %>
             <%= hidden_field_tag :route_id, @route.id %>
           </td>
-          <td><%= submit_tag "Изменить" %></td>
+          <td><%= submit_tag t('.change_time') %></td>
         <% end %>
 
-        <%= form_tag update_departure_railway_station_path(station), method: :patch do %>
+        <%= form_tag update_departure_admin_railway_station_path(station), method: :patch do %>
           <td>
             <%= time_field_tag :departure  %>
             <%= hidden_field_tag :route_id, @route.id %>
           </td>
-          <td><%= submit_tag "Изменить" %></td>
+          <td><%= submit_tag t('.change_time') %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to "Назад", @route %>
+<%= link_to t('common.back'), admin_route_path(@route) %>

@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Номер:</strong>
+  <strong><%= t('.number') %></strong>
   <%= @train.number %>
 </p>
 <table>
   <thead>
     <tr>
-      <th>Билет на имя:</th>
+      <th><%= t('.ticket_name') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,43 +16,43 @@
     <% @train.tickets.each do |train_ticket| %>
       <tr>
         <td><%= train_ticket.passenger_name %></td>
-        <td><%= link_to 'Показать', train_ticket %></td>
-        <td><%= link_to 'Редактировать', edit_ticket_path(train_ticket) %></td>
-        <td><%= link_to 'Удалить', train_ticket, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+        <td><%= link_to t('common.show'), train_ticket %></td>
+        <td><%= link_to t('common.edit'), edit_ticket_path(train_ticket) %></td>
+        <td><%= link_to t('common.delete'), train_ticket, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <p>
-<strong>Маршрут поезда:</strong>
+<strong><%= t('.route') %></strong>
 <% if @train.route.present? %>
   <%= @train.route.name %>
 <% else %>
-  Маршрут не установлен
+  <%= t('.route_empty') %>
 <% end %>
 </p>
 
 <p>
-  <strong>Вагоны купе:</strong><br>
+  <strong><%= t('.coupe_carraiges') %></strong><br>
   <%= render  'train_carriages', carriages: @train.carriages.coupe%>
 </p>
 
 <p>
-  <strong>Плацкартные вагоны:</strong><br>
+  <strong><%= t('.economy_carriages') %></strong><br>
   <%= render 'train_carriages', carriages: @train.carriages.economy %>
   </p>
 
 <p>
-  <strong>СВ вагоны:</strong><br>
+  <strong><%= t('.sv_carriages') %></strong><br>
   <%= render 'train_carriages', carriages: @train.carriages.sv %>
   </p>
 
 <p>
-  <strong>Сидячие вагоны:</strong><br>
+  <strong><%= t('.seats_carriages') %></strong><br>
   <%= render 'train_carriages', carriages: @train.carriages.seats %>
 </p>
 
-<p><%= link_to "Добавить вагон", new_train_coupe_carriage_path(@train) %></p>
+<p><%= link_to t('.add_carriage'), new_admin_train_coupe_carriage_path(@train) %></p>
 
-<%= link_to 'Редактировать', edit_train_path(@train) %>
-<%= link_to 'Назад', trains_path %>
+<%= link_to t('common.edit'), edit_admin_train_path(@train) %>
+<%= link_to t('common.back'), admin_trains_path %>

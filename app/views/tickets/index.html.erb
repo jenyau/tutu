@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Список билетов</h1>
+<h1><%= t('.title') %></h1>
 
 <% Ticket.all.each do |ticket| %>
   <p>
   Билет на имя: <%= ticket.passenger_name %><br>
   Номер поезда: <%= ticket.train.number %><br>
   Маршрут: <%= ticket.train.route.name %><br>
-  <%= link_to "По смотреть", ticket_path(ticket) %>
-  <%= link_to 'Удалить', ticket, method: :delete, data: { confirm: 'Вы уверены?' } %>
+  <%= link_to t('common.show'), ticket_path(ticket) %>
+  <%= link_to t('common.delete'), ticket, method: :delete, data: { confirm: 'Вы уверены?' } %>
   </p>
 <% end %>

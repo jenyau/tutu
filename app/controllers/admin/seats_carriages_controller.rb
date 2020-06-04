@@ -17,7 +17,7 @@ class Admin::SeatsCarriagesController < Admin::BaseController
     @seats_carriage = @train.carriages.seats.new(seats_carriage_params)
 
     if @seats_carriage.save
-      redirect_to @seats_carriage
+      redirect_to admin_seats_carriage_path(@seats_carriage)
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Admin::SeatsCarriagesController < Admin::BaseController
 
   def update
     if @seats_carriage.update(seats_carriage_params)
-      redirect_to @seats_carriage
+      redirect_to admin_seats_carriage_path(@seats_carriage)
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class Admin::SeatsCarriagesController < Admin::BaseController
 
   def destroy
     @seats_carriage.destroy
-    redirect_to seats_carriages_path
+    redirect_to admin_seats_carriages_path
   end
 
   private

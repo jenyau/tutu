@@ -1,6 +1,6 @@
-<h1>Изменить маршрут</h1>
+<h1><%= t('.title') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Список маршрутов', routes_path %>
-<%= link_to "Назад", @route %>
+<%= link_to t('.list_routes'), admin_routes_path %>
+<%= link_to t('common.back'), [:admin, @route] %>

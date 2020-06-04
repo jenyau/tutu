@@ -1,6 +1,6 @@
 <tr>
   <td><%= coupe_carriage.number %></td>
-  <td><%= link_to 'Показать', coupe_carriage %></td>
-  <td><%= link_to 'Редактировать', edit_coupe_carriage_path(coupe_carriage) %></td>
-  <td><%= link_to 'Удалить', coupe_carriage, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+  <td><%= link_to t('common.show'), admin_coupe_carriage_path(coupe_carriage) %></td>
+  <td><%= link_to t('common.edit'), edit_admin_coupe_carriage_path(coupe_carriage) %></td>
+  <td><%= link_to t('common.delete'), [:admin, coupe_carriage], method: :delete, data: { confirm: 'Вы уверены?' } %></td>
 </tr>

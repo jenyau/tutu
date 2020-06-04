@@ -3,60 +3,69 @@
 
 <table  style="border-bottom: 1px solid grey;">
   <tr >
-    <th>Маршруты</th>
-    <th>Отправление</th>
-    <th>Прибытие</th>
+    <th><%= t('searches.show.routes') %></th>
+    <th><%= t('searches.show.departure') %></th>
+    <th><%= t('searches.show.arrival') %></th>
   </tr>
 
-  <% @route_arr.each do |route| %>
-    <tr>
-      <td>
-        <%= route.name %>
-      </td>
-      <td>
-        <% if route.railway_stations.first.time_arrival(route).present? %>
-          <%= route.railway_stations.first.time_arrival(route).strftime('%H:%M') %>
-        <% else %>
-          Не указано
-        <% end %>
-      </td>
-      <td>
-        <% if route.railway_stations.last.time_departure(route).present? %>
-          <%= route.railway_stations.last.time_departure(route).strftime('%H:%M') %>
-        <% else %>
-          Не указано
-        <% end %>
-      </td>
-    </tr>
+  <% if @route_arr.empty? %>
+    <td><%= t('empty') %></td>
+  <% else %>
+    <% @route_arr.each do |route| %>
+      <tr>
+        <td>
+          <%= route.name %>
+        </td>
+        <td>
+          <% if route.railway_stations.first.time_arrival(route).present? %>
+            <%= route.railway_stations.first.time_arrival(route).strftime('%H:%M') %>
+          <% else %>
+            Не указано
+          <% end %>
+        </td>
+        <td>
+          <% if route.railway_stations.last.time_departure(route).present? %>
+            <%= route.railway_stations.last.time_departure(route).strftime('%H:%M') %>
+          <% else %>
+            <%= t('empty') %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
   <% end %>
 </table>
 
 </div>
 
 <div>
-<p><strong>Поезда на маршрутах:</strong></p>
-<% @route_arr.each do |route| %>
-  <strong><%= route.name %></strong><br>
-  <ul>
-    <% if route.trains.empty? %>
-      <li><strong>Нет поездов</strong></li>
-    <% else %>
-      <% route.trains.each do |train| %>
-      <table>
-        <tr>
-          <td>
-            <strong><%= train.number %></strong>
-          </td>
-          <td>
-            <%= form_tag new_ticket_path, method: :get %>
-            <%= hidden_field_tag :train_id, train.id %>
-            <%= hidden_field_tag :user_id, current_user.id %>
-            <%= submit_tag "Купить билет" %>
-          <td/>
-        </tr>
-      </table>
+<p></p>
+<strong><%= t('searches.show.trains_on_routes') %></strong><br>
+<% if @route_arr.empty? %>
+  <%= t('empty') %>
+<% else %>
+  <% @route_arr.each do |route| %>
+    <strong><%= route.name %></strong><br>
+    <ul>
+      <% if route.trains.empty? %>
+        <li><strong><%= t('empty') %></strong>%> </li>
+      <% else %>
+        <% route.trains.each do |train| %>
+        <table>
+          <tr>
+            <td>
+              <strong><%= train.number %></strong>
+            </td>
+            <td></td>
+            <td>
+              <%= form_tag new_ticket_path, method: :get %>
+              <%= hidden_field_tag :train_id, train.id %>
+              <%= submit_tag t('searches.show.buy_ticket'), class: 'btn btn-primary' %>
+            <td/>
+          </tr>
+        </table>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
+    </ul>
+  <% end %>
 <% end %>
 <p></p>

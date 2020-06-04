@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Номер вагона:</strong>
+  <strong><%= t('carriages.number') %></strong>
   <%= @seats_carriage.number %>
 </p>
 
 <p>
-  <strong>Тип вагона:</strong>
+  <strong><%= t('carriages.type') %></strong>
   <%= @seats_carriage.type %>
 </p>
 
 <p>
-  <strong>Присоединен к поезду:</strong>
+  <strong><%= t('carriages.train') %></strong>
   <% if @seats_carriage.train.present? %>
     <%= @seats_carriage.train.number %>
   <% else %>
-    Не присоеднинен ни к одному поезду
+    <%= t('carriages.train_empty') %>
   <% end %>
 </p>
 
 
 <p>
-  <strong>Сидячих мест:</strong>
+  <strong><%= t('carraiges.seats_places') %></strong>
   <%= @seats_carriage.seat_places %>
 </p>
 
-<%= link_to 'Редактировать', edit_seats_carriage_path(@seats_carriage) %> |
-<%= link_to 'Назад', @seats_carriage.train %>
+<%= link_to t('common.edit'), edit_admin_seats_carriage_path(@seats_carriage) %> |
+<%= link_to t('common.back'), [:admin, @seats_carriage.train] %>

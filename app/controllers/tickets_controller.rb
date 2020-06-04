@@ -1,4 +1,4 @@
-class Admin::TicketsController < Admin::BaseController
+class TicketsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy]
   before_action :set_ticket, only: [:update, :edit, :destroy, :show]
   before_action :set_train, only: [:new, :create]

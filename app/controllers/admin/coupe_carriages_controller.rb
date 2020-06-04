@@ -12,7 +12,7 @@ class Admin::CoupeCarriagesController < Admin::BaseController
   def create
     @coupe_carriage = @train.carriages.coupe.new(coupe_carriage_params)
     if @coupe_carriage.save
-      redirect_to @coupe_carriage
+      redirect_to admin_coupe_carriage_path(@coupe_carriage)
     else
       render :new
     end
@@ -23,7 +23,7 @@ class Admin::CoupeCarriagesController < Admin::BaseController
 
   def update
     if @coupe_carriage.update(coupe_carriage_params)
-      redirect_to @coupe_carriage
+      redirect_to admin_coupe_carriage_path(@coupe_carriage)
     else
       render :edit
     end
@@ -31,12 +31,12 @@ class Admin::CoupeCarriagesController < Admin::BaseController
 
   def destroy
     @coupe_carriage.destroy
-    redirect_to coupe_carriages_path
+    redirect_to admin_coupe_carriages_path
   end
 
   private
   def coupe_carriage_params
-    params.require(:coupe_carriage).permit(:number, :top_seats, :bottom_seats, :train_id, :type)
+    params.require(:coupe_carriage).permit(:number, :seat_places, :top_seats, :bottom_seats, :train_id, :type)
   end
 
   def set_coupe_carriage

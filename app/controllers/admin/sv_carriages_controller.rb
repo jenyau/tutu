@@ -17,7 +17,7 @@ class Admin::SvCarriagesController < Admin::BaseController
     @sv_carriage = @train.carriages.sv.new(sv_carriage_params)
 
     if @sv_carriage.save
-      redirect_to @sv_carriage
+      redirect_to [:admin, @sv_carriage]
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Admin::SvCarriagesController < Admin::BaseController
 
   def update
     if @sv_carriage.update(sv_carriage_params)
-      redirect_to @sv_carriage
+      redirect_to [:admin, @sv_carriage]
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class Admin::SvCarriagesController < Admin::BaseController
 
   def destroy
     @sv_carriage.destroy
-    redirect_to sv_carriages_path
+    redirect_to admin_sv_carriages_path
   end
 
   private
