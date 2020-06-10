@@ -8,6 +8,13 @@
     <%= hidden_field_tag :train_id, @train.id %>
   </div>
 
+  <p>
+    <%= form.label :start_station %>
+    <%= form.collection_select :start_station_id, RailwayStation.all, :id, :title %><br>
+    <%= form.label :end_station %>
+    <%= form.collection_select :end_station_id, RailwayStation.all, :id, :title %>
+  </p>
+
   <strong><%= "Билет на поезд № #{@train.number}" %></strong>
   <div class="actions">
     <%= form.submit t('.submit', action: @ticket.new_record? ? 'Создать' : 'Изменить') %>
