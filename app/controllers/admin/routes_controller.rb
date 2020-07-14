@@ -27,7 +27,7 @@ class Admin::RoutesController < Admin::BaseController
 
   def update
     if @route.update(train_params)
-        redirect_to admin_route_path(@route)
+        redirect_to admin_routes_path
     else
         render :edit
     end
